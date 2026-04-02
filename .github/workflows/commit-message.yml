@@ -1,0 +1,14 @@
+name: Affichage du message du commit
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    afficher-message-commit:
+        runs-on: ubuntu-latest
+        steps:            
+            - name: Récupérer le message du dernier commit
+              run:  echo "${{ github.event.head_commit.message }}"
